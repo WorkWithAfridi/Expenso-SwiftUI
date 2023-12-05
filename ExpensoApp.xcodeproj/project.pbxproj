@@ -27,6 +27,10 @@
 		9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */; };
 		9DBBEA012ABE3161000F1565 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA002ABE3161000F1565 /* TransactionRow.swift */; };
 		9DBBEA122AC0BEF7000F1565 /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */; };
+		EF51085D2B1F3B7A00372102 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF51085F2B1F3B7A00372102 /* Localizable.strings */; };
+		EF5108632B1F3BBC00372102 /* LanguageEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5108622B1F3BBC00372102 /* LanguageEnums.swift */; };
+		EF5108652B1F3BE200372102 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5108642B1F3BE200372102 /* StringExtensions.swift */; };
+		EF5108672B1F3C8800372102 /* LocalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5108662B1F3C8800372102 /* LocalizationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,11 @@
 		9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		9DBBEA002ABE3161000F1565 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
 		9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
+		EF51085E2B1F3B7A00372102 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF5108602B1F3B9500372102 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF5108622B1F3BBC00372102 /* LanguageEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageEnums.swift; sourceTree = "<group>"; };
+		EF5108642B1F3BE200372102 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		EF5108662B1F3C8800372102 /* LocalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,8 @@
 		9DBBE9C62ABE19C3000F1565 = {
 			isa = PBXGroup;
 			children = (
+				EF5108612B1F3BA800372102 /* I10n */,
+				EF51085F2B1F3B7A00372102 /* Localizable.strings */,
 				9DBBE9D12ABE19C3000F1565 /* Expenso */,
 				9DBBE9D02ABE19C3000F1565 /* Products */,
 			);
@@ -171,6 +182,16 @@
 			path = TransactionViews;
 			sourceTree = "<group>";
 		};
+		EF5108612B1F3BA800372102 /* I10n */ = {
+			isa = PBXGroup;
+			children = (
+				EF5108622B1F3BBC00372102 /* LanguageEnums.swift */,
+				EF5108642B1F3BE200372102 /* StringExtensions.swift */,
+				EF5108662B1F3C8800372102 /* LocalizationService.swift */,
+			);
+			path = I10n;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,6 +234,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 9DBBE9C62ABE19C3000F1565;
 			productRefGroup = 9DBBE9D02ABE19C3000F1565 /* Products */;
@@ -230,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D57B0452AC23128005EEBC2 /* LaunchScreen.storyboard in Resources */,
+				EF51085D2B1F3B7A00372102 /* Localizable.strings in Resources */,
 				9DBBE9DA2ABE19C5000F1565 /* Preview Assets.xcassets in Resources */,
 				9DBBE9D72ABE19C5000F1565 /* Assets.xcassets in Resources */,
 			);
@@ -248,6 +271,8 @@
 				9D57B0302AC0CB55005EEBC2 /* DateFormatter.swift in Sources */,
 				9DBBE9DC2ABE19C5000F1565 /* Persistence.swift in Sources */,
 				9DBBE9F62ABE2236000F1565 /* TransactionsListView.swift in Sources */,
+				EF5108672B1F3C8800372102 /* LocalizationService.swift in Sources */,
+				EF5108632B1F3BBC00372102 /* LanguageEnums.swift in Sources */,
 				9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */,
 				9D3D06112AC4CA5300EFE54D /* CustomProgressView.swift in Sources */,
 				9DBBE9F42ABE2204000F1565 /* OnboardingView.swift in Sources */,
@@ -259,10 +284,23 @@
 				9DBBE9D32ABE19C3000F1565 /* Expenso.swift in Sources */,
 				9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */,
 				9DBBE9DF2ABE19C5000F1565 /* Expenso.xcdatamodeld in Sources */,
+				EF5108652B1F3BE200372102 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EF51085F2B1F3B7A00372102 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF51085E2B1F3B7A00372102 /* en */,
+				EF5108602B1F3B9500372102 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9DBBE9E02ABE19C5000F1565 /* Debug */ = {

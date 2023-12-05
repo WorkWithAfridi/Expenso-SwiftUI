@@ -14,3 +14,31 @@
 "edit" = "Bearbeiten";
 "no_transactions_yet" = "Noch keine Transaktionen!";
 "tap_+_to_add" = "Tippen Sie auf die Schaltfläche +, um eine neue Transaktion hinzuzufügen.";
+"add_transactions" = "Transaktionen hinzufügen";
+"save" = "speichern";
+"pls_fill_up_correctly" = "Bitte füllen Sie alle Felder korrekt aus.";
+
+"income" = "Einkommen";
+"expense" = "Aufwand";
+"name" = "Name";
+"amount" = "Menge";
+"category" = "Kategorie";
+
+"All" = "Alle";
+"Food" = "Essen";
+"Home"="Heim";
+"Work" = "Arbeiten";
+"Transportation" = "Transport";
+"Entertainment"="Unterhaltung";
+"Leisure"="Freizeit";
+"Health"="Gesundheit";
+"Gift"="Geschenk";
+"Shopping"="Einkaufen";
+"Investment"="Investition";
+"Other" = "Andere";
+
+"Welcome to Expenso" = "Willkommen bei Expenso";
+"Wisdom in every cent."="Weisheit in jedem Cent.";
+"Track Expenses" = "Verfolgen Sie Ausgaben";
+"Keep track of your spending easily." = "Behalten Sie ganz einfach den Überblick über Ihre Ausgaben.";
+

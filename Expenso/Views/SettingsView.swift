@@ -67,6 +67,7 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("settings".localized(language))
+            // Dialoge
             .alert(isPresented: $showErrorAlert) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }

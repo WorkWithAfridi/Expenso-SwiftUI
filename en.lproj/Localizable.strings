@@ -9,8 +9,37 @@
 "save_error" = "Save Error";
 "delete_error" = "Delete Error";
 "are_you_sure" = "Are you sure?";
-"this_will_permanently_delete" = "This will permanently delete all your data. This action can't be undone.";
+"this_will_permanently_delete" = "This will permanently delete your data. This action can't be undone.";
 
 "edit" = "Edit";
 "no_transactions_yet" = "No transactions yet!";
 "tap_+_to_add" = "Tap on the + button to add a new transaction.";
+"add_transactions" = "Add Transactions";
+"save" = "Save";
+"pls_fill_up_correctly" = "Please fill out all fields correctly.";
+
+
+"income" = "Income";
+"expense" = "Expense";
+"name" = "Name";
+"amount" = "Amount";
+"category" = "Category";
+
+"All" = "All";
+"Food" = "Food";
+"Home"="Home";
+"Work" = "Work";
+"Transportation" = "Transportation";
+"Entertainment"="Entertainment";
+"Leisure"="Leisure";
+"Health"="Health";
+"Gift"="Gift";
+"Shopping"="Shopping";
+"Investment"="Investment";
+"Other" = "Other";
+
+"Welcome to Expenso" = "Welcome to Expenso";
+"Wisdom in every cent."="Wisdom in every cent.";
+
+"Track Expenses" = "Track Expenses";
+"Keep track of your spending easily." = "Keep track of your spending easily.";

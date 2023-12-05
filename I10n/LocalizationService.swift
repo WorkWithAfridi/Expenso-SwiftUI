@@ -16,6 +16,8 @@ class LocalizationService {
         } set {
             if newValue != language {
                 UserDefaults.standard.setValue(newValue.rawValue, forKey: "language")
+                
+                // Notification Center
                 NotificationCenter.default.post(name: LocalizationService.changedLanguage, object: nil)
             }
         }

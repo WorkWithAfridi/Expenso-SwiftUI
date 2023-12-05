@@ -9,6 +9,10 @@ struct TransactionRow: View {
     return formatter
   }()
   
+    
+    @AppStorage("language")
+    private var language = LocalizationService.shared.language
+    
   var body: some View {
     HStack {
       Image(systemName: icon(for: transaction.category))
@@ -20,7 +24,7 @@ struct TransactionRow: View {
       VStack(alignment: .leading, spacing: 5) {
         Text(transaction.name ?? "Unknown name")
           .font(.headline)
-        Text(transaction.category ?? "Unknown category")
+          Text((transaction.category ?? "Unknown category").localized(language))
           .font(.subheadline)
           .foregroundColor(color(for: transaction.category))
         if let date = transaction.date {

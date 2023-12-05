@@ -19,18 +19,18 @@ struct TransactionsListView: View {
         NavigationView {
             VStack {
                 Picker("Category", selection: $viewModel.selectedCategory) {
-                    Text("All").tag("All")
-                    Text("Food").tag("Food")
-                    Text("Home").tag("Home")
-                    Text("Work").tag("Work")
-                    Text("Transportation").tag("Transportation")
-                    Text("Entertainment").tag("Entertainment")
-                    Text("Leisure").tag("Leisure")
-                    Text("Health").tag("Health")
-                    Text("Gift").tag("Gift")
-                    Text("Shopping").tag("Shopping")
-                    Text("Investment").tag("Investment")
-                    Text("Other").tag("Other")
+                    Text("All".localized(language)).tag("All")
+                    Text("Food".localized(language)).tag("Food")
+                    Text("Home".localized(language)).tag("Home")
+                    Text("Work".localized(language)).tag("Work")
+                    Text("Transportation".localized(language)).tag("Transportation")
+                    Text("Entertainment".localized(language)).tag("Entertainment")
+                    Text("Leisure".localized(language)).tag("Leisure")
+                    Text("Health".localized(language)).tag("Health")
+                    Text("Gift".localized(language)).tag("Gift")
+                    Text("Shopping".localized(language)).tag("Shopping")
+                    Text("Investment".localized(language)).tag("Investment")
+                    Text("Other".localized(language)).tag("Other")
                 }
                 .pickerStyle(MenuPickerStyle())
                 .padding([.horizontal, .top])
@@ -91,13 +91,16 @@ struct TransactionsListView: View {
             ForEach(viewModel.transactions, id: \.self) { transaction in
                 TransactionRow(transaction: transaction)
             }
+            // Gestures
             .onDelete(perform: { indexSet in
                 self.offsets = indexSet
                 showingAlert.toggle()
             })
+            
+            // Dialoge
             .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Are you sure?"),
-                      message: Text("This will permanently delete your data. This action can't be undone."),
+                Alert(title: Text("are_you_sure".localized(language)),
+                      message: Text("this_will_permanently_delete".localized(language)),
                       primaryButton: .destructive(Text("Delete")) {
                     if let safeOffset = offsets {
                         viewModel.deleteTransactions(

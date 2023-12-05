@@ -13,44 +13,48 @@ struct NewTransactionView: View {
   
   @State private var showErrorAlert = false
   @State private var errorMessage = "There was a problem saving the transaction. Please try again."
+    
+    @AppStorage("language")
+    private var language = LocalizationService.shared.language
   
   let categories = ["Food", "Home", "Work", "Transportation", "Entertainment", "Leisure", "Health", "Gift", "Shopping", "Investment", "Other"]
   
   var body: some View {
     NavigationView {
       Form {
-        TextField("Name", text: $name)
+        TextField("name".localized(language), text: $name)
         
         HStack {
           Text("$")
-          TextField("Amount", text: $amount)
+          TextField("amount".localized(language), text: $amount)
             .keyboardType(.decimalPad)
         }
         
         Picker("Type", selection: $selectedSegment) {
-          Text("Income").tag(0)
-          Text("Expense").tag(1)
+          Text("income".localized(language)).tag(0)
+          Text("expense".localized(language)).tag(1)
         }
         .pickerStyle(SegmentedPickerStyle())
         
-        Picker("Category", selection: $selectedCategoryIndex) {
+        Picker("category".localized(language), selection: $selectedCategoryIndex) {
           ForEach(Array(categories.indices), id: \.self) { index in
-            Text(self.categories[index]).tag(index)
+              Text(self.categories[index].localized(language)).tag(index)
           }
         }
       }
-      .navigationTitle("Add Transaction")
+      .navigationTitle("add_transactions".localized(language))
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
-          Button("Save") {
+          Button("save".localized(language)) {
             saveTransaction()
           }
           .accentColor(Color("ExpensoPink"))
         }
       }
+        // Dialoge
       .alert(isPresented: $showErrorAlert) {
         Alert(
-          title: Text("Saving Error"),
+            title: Text("save_error".localized(language)),
           message: Text(errorMessage),
           dismissButton: .default(Text("OK"))
         )
@@ -61,7 +65,7 @@ struct NewTransactionView: View {
   
   private func saveTransaction() {
     guard let amountDouble = Double(self.amount), !self.name.isEmpty else {
-      self.errorMessage = "Please fill out all fields correctly."
+        self.errorMessage = "pls_fill_up_correctly".localized(language)
       self.showErrorAlert = true
       return
     }

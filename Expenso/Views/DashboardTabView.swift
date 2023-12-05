@@ -11,19 +11,6 @@ struct DashboardTabView: View {
             Image(systemName: "list.dash")
             Text("Transactions")
           }
-        
-        SavingsGoalsListView(context: viewContext)
-          .tabItem {
-            Image(systemName: "star.fill")
-            Text("Savings Goals")
-          }
-        
-        BudgetsListView(context: viewContext)
-          .tabItem {
-            Image(systemName: "dollarsign.circle.fill")
-            Text("Budgets")
-          }
-        
         SettingsView()
           .tabItem {
             Image(systemName: "gearshape")

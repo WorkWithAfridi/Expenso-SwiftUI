@@ -19,47 +19,11 @@ struct OnboardingView: View {
       description: "Keep track of your spending easily.",
       image: Image(systemName: "dollarsign.circle.fill")
     ),
-    OnboardingScreen(
-      title: "Achieve Goals",
-      isColoredTitle: false,
-      description: "Save money for your goals.",
-      image: Image(systemName: "star.fill")
-    ),
-    OnboardingScreen(
-      title: "Set Budgets",
-      isColoredTitle: false,
-      description: "Set budgets to avoid overspending.",
-      image: Image(systemName: "chart.bar.fill")
-    )
   ]
   
   var body: some View {
     VStack {
-      HStack {
-        if selectedPage < onboardingScreens.count - 1 {
-          Button(action: {
-            withAnimation {
-              selectedPage += 1
-            }
-          }) {
-            Text("Next")
-              .foregroundStyle(Color("ExpensoPink"))
-          }
-          
-          Spacer()
-          
-          Button(action: onCompletion) {
-            Text("Skip")
-              .foregroundStyle(Color("ExpensoPink"))
-          }
-        } else {
-          Spacer()
-        }
-      }
-      .padding()
-      
       Spacer()
-      
       TabView(selection: $selectedPage) {
         ForEach(0..<onboardingScreens.count, id: \.self) { index in
           let screen = onboardingScreens[index]

@@ -1,0 +1,67 @@
+import SwiftUI
+
+struct UpdateSavingsView: View {
+  @Environment(\.managedObjectContext) private var viewContext
+  @Environment(\.presentationMode) var presentationMode
+  
+  @ObservedObject var viewModel: SavingsGoalsViewModel
+  
+  @Binding var refreshTrigger: Bool
+  
+  @State private var showingAlert = false
+  @State private var alertMessage = ""
+  @State private var savedAmount: String = ""
+  
+  var goal: SavingsGoal
+  
+  func updateSavings() {
+    guard let savedAmountDouble = Double(savedAmount), savedAmountDouble >= 0 else {
+      alertMessage = "Please enter a valid positive number."
+      showingAlert = true
+      return
+    }
+    
+    goal.currentAmount += savedAmountDouble
+    
+    do {
+      try viewContext.save()
+      viewModel.fetchGoals()
+      refreshTrigger.toggle()
+      presentationMode.wrappedValue.dismiss()
+    } catch {
+      alertMessage = "Failed to save changes: \(error.localizedDescription)"
+      showingAlert = true
+    }
+  }
+  
+  var body: some View {
+    NavigationView {
+      VStack {
+        Text("How much did you save?")
+          .font(.largeTitle)
+        
+        HStack {
+          Text("$")
+          TextField("Amount", text: $savedAmount)
+            .keyboardType(.decimalPad)
+            .padding()
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+        }
+        
+        Button("Submit", action: updateSavings)
+          .font(.headline)
+          .padding()
+          .background(Color("ExpensoPink"))
+          .foregroundColor(.white)
+          .cornerRadius(8)
+      }
+      .padding()
+      .navigationBarTitle("Update Savings", displayMode: .inline)
+      .alert(isPresented: $showingAlert) {
+        Alert(title: Text("Invalid Input"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+      }
+    }
+  }
+}
+
+

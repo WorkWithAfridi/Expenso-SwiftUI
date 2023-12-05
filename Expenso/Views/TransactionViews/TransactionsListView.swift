@@ -18,22 +18,41 @@ struct TransactionsListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Picker("Category", selection: $viewModel.selectedCategory) {
-                    Text("All".localized(language)).tag("All")
-                    Text("Food".localized(language)).tag("Food")
-                    Text("Home".localized(language)).tag("Home")
-                    Text("Work".localized(language)).tag("Work")
-                    Text("Transportation".localized(language)).tag("Transportation")
-                    Text("Entertainment".localized(language)).tag("Entertainment")
-                    Text("Leisure".localized(language)).tag("Leisure")
-                    Text("Health".localized(language)).tag("Health")
-                    Text("Gift".localized(language)).tag("Gift")
-                    Text("Shopping".localized(language)).tag("Shopping")
-                    Text("Investment".localized(language)).tag("Investment")
-                    Text("Other".localized(language)).tag("Other")
+                HStack{
+                    Text("transactions".localized(language))
+                        .font(.title)
+                        .bold()
+                    Spacer()
+                    Button(action: {
+                        isShowingNewTransactionView = true
+                    }) {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.accentColor)
+                    }
                 }
-                .pickerStyle(MenuPickerStyle())
-                .padding([.horizontal, .top])
+                .padding(.horizontal)
+                .padding(.top)
+                HStack(alignment: .center){
+                    Spacer()
+                    Picker("Category", selection: $viewModel.selectedCategory) {
+                        Text("All".localized(language)).tag("All")
+                        Text("Food".localized(language)).tag("Food")
+                        Text("Home".localized(language)).tag("Home")
+                        Text("Work".localized(language)).tag("Work")
+                        Text("Transportation".localized(language)).tag("Transportation")
+                        Text("Entertainment".localized(language)).tag("Entertainment")
+                        Text("Leisure".localized(language)).tag("Leisure")
+                        Text("Health".localized(language)).tag("Health")
+                        Text("Gift".localized(language)).tag("Gift")
+                        Text("Shopping".localized(language)).tag("Shopping")
+                        Text("Investment".localized(language)).tag("Investment")
+                        Text("Other".localized(language)).tag("Other")
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .padding([.horizontal])
+                }
                 
                 Spacer()
                 
@@ -44,17 +63,6 @@ struct TransactionsListView: View {
                 }
             }
             .navigationViewStyle(StackNavigationViewStyle())
-            .navigationTitle("transactions".localized(language))
-            .navigationBarItems(
-                trailing: Button(action: {
-                    isShowingNewTransactionView = true
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.accentColor)
-                }
-            )
             .sheet(isPresented: $isShowingNewTransactionView) {
                 NewTransactionView()
                     .environment(\.managedObjectContext, viewContext)

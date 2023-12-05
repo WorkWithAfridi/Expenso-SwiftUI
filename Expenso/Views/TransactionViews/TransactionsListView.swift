@@ -8,6 +8,8 @@ struct TransactionsListView: View {
     @State private var isShowingNewTransactionView = false
     @State private var showingAlert = false
     @State private  var offsets: IndexSet?
+    @AppStorage("language")
+    private var language = LocalizationService.shared.language
     
     init(context: NSManagedObjectContext) {
         _viewModel = StateObject(wrappedValue: TransactionsViewModel(context: context))
@@ -42,9 +44,8 @@ struct TransactionsListView: View {
                 }
             }
             .navigationViewStyle(StackNavigationViewStyle())
-            .navigationTitle("Transactions")
+            .navigationTitle("transactions".localized(language))
             .navigationBarItems(
-                leading: EditButton(),
                 trailing: Button(action: {
                     isShowingNewTransactionView = true
                 }) {
@@ -68,15 +69,17 @@ struct TransactionsListView: View {
             Image(systemName: "plus.circle.fill")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 100)
+                .frame(width: 70, height: 70)
                 .foregroundColor(.gray)
                 .padding()
-            Text("No transactions yet!")
+            Text("no_transactions_yet".localized(language))
                 .font(.headline)
                 .padding(.bottom, 1)
-            Text("Tap on the + button to add a new transaction.")
+                .multilineTextAlignment(.center)
+            Text("tap_+_to_add".localized(language))
                 .font(.subheadline)
                 .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
             
             Spacer()
         }

@@ -19,14 +19,13 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Picker("Theme", selection: $themeProvider.isDarkMode) {
-                    Text("Light").tag(false)
-                    Text("Dark").tag(true)
+                Picker("theme".localized(language), selection: $themeProvider.isDarkMode) {
+                    Text("light".localized(language)).tag(false)
+                    Text("dark".localized(language)).tag(true)
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
                 Section{
-                    
                     Menu {
                         Button {
                             LocalizationService.shared.language = .english_us
@@ -39,28 +38,24 @@ struct SettingsView: View {
                             Text("German (DE)")
                         }
                     } label: {
-                        Text("Language: ")
+                        Text("\("app_language".localized(language)): ")
                         Spacer()
-                        Text("\(LocalizationService.shared.language.rawValue)".uppercased())
+                        Text("\("\(LocalizationService.shared.language.rawValue)".lowercased() == "en" ? "English (US)" : "German (DE)" )".localized(language).uppercased())
                     }.padding()
                 } header: {
-                    Text("App Locale")
+                    Text("locale".localized(language))
                 }
                 
                 Section {
-                    Text("settings_language".localized(language))
-                        .foregroundColor(.black)
-                        .font(.title)
-                        .padding()
                     Button(action: {
                         showingAlert = true
                     }) {
-                        Text("Delete My Data")
+                        Text("delete_my_data".localized(language))
                             .foregroundColor(.red)
                     }
                     .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Are you sure?"),
-                              message: Text("This will permanently delete all your data. This action can't be undone."),
+                        Alert(title: Text("are_you_sure".localized(language)),
+                              message: Text("this_will_permanently_delete".localized(language)),
                               primaryButton: .destructive(Text("Delete")) {
                             deleteUserData()
                         },
@@ -68,10 +63,10 @@ struct SettingsView: View {
                         )
                     }
                 } header: {
-                    Text("Data Management")
+                    Text("data_management".localized(language))
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("settings".localized(language))
             .alert(isPresented: $showErrorAlert) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
             }
@@ -87,8 +82,8 @@ struct SettingsView: View {
             do {
                 try viewContext.execute(batchDeleteRequest)
             } catch {
-                self.errorTitle = "Delete Error"
-                self.errorMessage = "There was a problem deleting your data."
+                self.errorTitle = "delete_error".localized(language)
+                self.errorMessage = ""
                 self.showErrorAlert = true
                 return
             }
@@ -97,8 +92,8 @@ struct SettingsView: View {
         do {
             try viewContext.save()
         } catch {
-            self.errorTitle = "Save Error"
-            self.errorMessage = "There was a problem saving the changes."
+            self.errorTitle = "save_error".localized(language)
+            self.errorMessage = ""
             self.showErrorAlert = true
         }
     }

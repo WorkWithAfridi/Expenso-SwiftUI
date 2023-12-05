@@ -1,3 +1,16 @@
+"settings" = "Settings";
+"light" = "Light";
+"dark" = "Dark";
+"locale" = "Locale";
+"app_language" = "App Language";
+"data_management" = "Data Management";
+"delete_my_data" = "Delete My Data";
+"transactions" = "Transactions";
+"save_error" = "Save Error";
+"delete_error" = "Delete Error";
+"are_you_sure" = "Are you sure?";
+"this_will_permanently_delete" = "This will permanently delete all your data. This action can't be undone.";
 
-"settings_language" = "Language";
-"settings_language_footer" = "Choose interface language.";
+"edit" = "Edit";
+"no_transactions_yet" = "No transactions yet!";
+"tap_+_to_add" = "Tap on the + button to add a new transaction.";

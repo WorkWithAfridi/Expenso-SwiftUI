@@ -1,3 +1,16 @@
+"settings" = "Einstellungen";
+"light" = "Licht";
+"dark" = "Dunkel";
+"locale" = "Gebietsschema";
+"app_language" = "App-Sprache";
+"data_management" = "Datenmanagement";
+"delete_my_data" = "Meine Daten löschen";
+"transactions" = "Transaktionen";
+"save_error" = "Fehler speichern";
+"delete_error" = "Fehler löschen";
+"are_you_sure" = "Bist du sicher?";
+"this_will_permanently_delete" = "Dadurch werden alle Ihre Daten dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.";
 
-"settings_language" = "Язык";
-"settings_language_footer" = "Выберите язык интерфейса.";
+"edit" = "Bearbeiten";
+"no_transactions_yet" = "Noch keine Transaktionen!";
+"tap_+_to_add" = "Tippen Sie auf die Schaltfläche +, um eine neue Transaktion hinzuzufügen.";
